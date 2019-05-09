@@ -8,7 +8,7 @@ plano = []
 coordenadas = []
 
 def plano_cartesiano(coordenadas):
-   """ "Matriz" com as distâncias de cada coordenada"""
+   """Matriz com as distâncias de cada coordenada"""
    matriz={}
    for i,(x1,y1) in enumerate(coordenadas):
       for j,(x2,y2) in enumerate(coordenadas):
@@ -41,32 +41,11 @@ def comprimento_total_percurso(matriz, percurso):
    """ Retorna o comprimento do percurso total """
    total=0
    num_cidades=len(percurso)
-   #print "#####################"
-   print num_cidades
-   #print "#####################"
    for i in range(num_cidades):
-      #print "#####################"
-     # print "####Entrou no for######"
-     # print "I:"
-      print i
-      #print "Num_cidades:"
-      print num_cidades
-      #print "## Print J###################"
       j=(i+1)%num_cidades
-      print j
-      #print "#####################"
       cidade_i=percurso[i]
-      print "cidade_I=percurso[i]"
-      print cidade_i
-      #print "#####################"
-
       cidade_j=percurso[j]
-      #print "Cidade_J=percurso[j]"
-      print cidade_j
-      #print "#################"
       total= total + matriz[cidade_i,cidade_j]
-      #print "total"
-      print total
    return total
 
 def Inicia_Cromossomos(cromossomo, **args):
@@ -81,7 +60,8 @@ def Inicia_Cromossomos(cromossomo, **args):
 
 def eval_func(chromossomo):
    """ Função de avaliação """
-  return comprimento_total_percurso(plano, chromossomo)
+   global plano
+   return comprimento_total_percurso(plano, chromossomo)
 
 
 if __name__ == "__main__":
